@@ -93,9 +93,6 @@ button {
         max-width: 75%;
         align-self: center;
     }
-    body {
-        background-color: lightblue;
-    }
 
     .topnav a:not(:first-child) {
         display: none;
@@ -128,10 +125,6 @@ button {
     img {
         max-height: 100%;
         max-width: 100%;
-    }
-
-    body {
-        background-color: lightblue;
     }
 
     button {
