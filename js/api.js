@@ -94,7 +94,7 @@
 
     function getNewsHtml(article) {
 
-        var card = $('<div>').addClass('card col-12 col-sm-2 col-md-3 col-xl-3');
+        var card = $('<div>').addClass('card row col-12');
 
         card = addImage(card);
         card = addBodyTitle(card);
