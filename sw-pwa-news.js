@@ -1,7 +1,7 @@
 (function () {
     'use strict'
 
-    var CACHE_SHELL = 'pwa-news-shell-v5';
+    var CACHE_SHELL = 'pwa-news-shell-v1';
     var CACHE_DATA = 'pwa-news-data-v1';
 
     var API = 'https://newsapi.org/v2/';
