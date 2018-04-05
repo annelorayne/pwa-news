@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -65,13 +65,25 @@
 </section>
 
 <footer>
-    <p>PWA NEWS - Version: 0.1.1</p>
+    <p>PWA NEWS - Version: 0.1.2.2 forked by Anne Lorayne</p>
 </footer>
 
 <script src="library/jquery-3.3.1.min.js"></script>
 <script src="library/moment.min.js"></script>
 
 <script src="js/api.js"></script>
-
+<script> 
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function () {
+            navigator.serviceWorker.register('/sw-pwa-news.js').then(function (registration) {
+                // Registration was successful
+                console.log('ServiceWorker registration successful with scope: ', registration.scope);
+            }).catch(function (err) {
+                // registration failed :(
+                console.log('ServiceWorker registration failed: ', err);
+            });
+        });
+    }
+</script>
 </body>
 </html>
