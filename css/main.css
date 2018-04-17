@@ -12,14 +12,36 @@ p, h1, h2, h3, h4, h5, h6 {
     margin: 0;
 }
 
-#news {
-    margin-top: 56px;
+img, embed, object, video {
+    max-width: 100%;
 }
 
+#news {
+    margin-top: 115px;
+}
+
+button {
+    border: none;
+    background: transparent;
+}
+
+button.bt-default {
+    padding: 0 16px;
+    color: white;
+    font-size: 100%;
+    text-transform: uppercase;
+    line-height: 52px;
+    outline: none;
+}
+
+.hide {
+    display: none;
+}
 .navbar {
     position: fixed;
     top: 0;
     width: 100%;
+    z-index: 2;
     color: #fff;
     line-height: 56px;
     padding: 0 10px;
@@ -32,28 +54,12 @@ p, h1, h2, h3, h4, h5, h6 {
     color: white;
 }
 
-.navbar h2 {
-    margin-left: 60px;
-}
-
-img, embed, object, video {
-    max-width: 100%;
-}
-
-@media screen and (max-width: 570px) {
-    .navbar {
-        height: 56px;
-        max-height: 56px;
-    }
-}
-
 .float-right {
     float: right;
 }
 
-button {
-    border: none;
-    background: transparent;
+.navbar button.bt-default.active {
+    border-bottom: white 2px solid;
 }
 
 .card {
@@ -67,19 +73,10 @@ button {
 }
 
 .card .card-button {
-    outline: none;
     position: relative;
     display: flex;
-    line-height: 52px;
-    padding: 0 16px;
     color: #00bcd4;
-    font-size: 100%;
-    text-transform: uppercase;
     margin-right: -16px;
-}
-
-.card .card-button i.material-icons {
-    line-height: inherit;
 }
 
 .card .card-text {
@@ -91,4 +88,14 @@ button {
 
 .card-title {
     padding-right: 16px;
+}
+
+@media screen and (max-width: 767.98px) {
+    #news {
+        margin-top: 56px;
+    }
+
+    .navbar h2 {
+        margin-left: 60px;
+    }
 }

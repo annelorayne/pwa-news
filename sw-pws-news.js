@@ -1,7 +1,7 @@
 (function () {
     'use strict'
 
-    var CACHE_SHELL = 'pwa-news-shell-v1';
+    var CACHE_SHELL = 'pwa-news-shell-v4';
     var CACHE_DATA = 'pwa-news-data-v1';
 
     var API = 'https://newsapi.org/v2/';
@@ -25,19 +25,25 @@
                 
     });
 
+// remover um service worker antigo, não pode deixar as versões antigas(temos que remover as antigas). 
     self.addEventListener('activate', function (event) {
         var cacheList = [CACHE_SHELL, CACHE_DATA];
         console.log("SW - Activate");
         return event.waitUntil(
-            self.caches.keys().then(function (cacheNames) {
-                return Promise.all(cacheNames.map(function name(cacheName) {
-                    if (cacheList.indexOf(cacheName) === -1) {
+            self.caches.keys().then(function (cacheName) {
+                console.log(cacheName);
+                // Usa o primise all para fazer tuudo de uma vez de forma assincrona
+                // Obrigatoriamente temos que gerenciar os caches antigos
+                // Nunca passe de 3 segundos para iniciar uma aplicação - DICA
+                return Promise.all(cacheName.map(function name(params) {
+                    if (cacheList.indexOf(params) === -1) {
                         self.caches.delete(cacheName);
                     }
                 }))
 
             })
         )
+
     });
 
     self.addEventListener('fetch', function (event) {
@@ -69,4 +75,16 @@
         }
     });
 
+    self.addEventListener('push', function(event) {
+        console.log('[Service Worker] Push Received.');
+        console.log(`[Service Worker] Push had this data: "${event.data.text()}"`);
+        const notificationBody = `${event.data.text()}`;
+        const title = 'Push PWA News';
+        const options = {
+          body: notificationBody,
+          icon: 'image/favicon-32x32.png'
+        };
+        event.waitUntil(self.registration.showNotification(title, options));
+      });
+    
 }());

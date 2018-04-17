@@ -1,0 +1,26 @@
+{
+  "name": "App Curso PWA",
+  "short_name": "PWA News", // sempre tem que tem o short name, para ficar na splash screen
+  "orientation": "portrait",
+  "display": "standalone", // se for "browse�[ aparece a barra de endere�o
+  "start_url": "/index.html",
+  "theme_color": "#ffffff",
+  "background_color": "#2196F3",
+  "icons": [{
+    "src": "image/apple-touch-icon.png",
+    "type": "image/png",
+    "sizes": "128x128"
+  },
+  {
+    "src": "image/android-chrome-192x192.png",
+    "type": "image/png",
+    "sizes": "192x192"
+  },
+  { 
+    "src": "/image/android-chrome-512x512.png",
+    "sizes": "512x512", 
+    "type": "image/png"
+  }]
+
+  
+}
